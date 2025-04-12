@@ -1,0 +1,91 @@
+#head {
+  background-color: rgba(221, 216, 250, 0.39);
+}
+div#head > hr {
+  color: rgb(46, 40, 77);
+}
+#tagline {
+  color: rgba(0, 0, 0, 0.384);
+}
+#menu {
+  background-color: rgb(103, 143, 218);
+}
+div#menu > ul li a {
+  color: white;
+}
+#search {
+  background-color: rgba(255, 166, 0, 0.712);
+}
+#searchbtn {
+  background-color: rgba(255, 68, 0, 0.767);
+  color: white;
+  border-radius: 5px;
+}
+
+#table_div {
+  border: 1px solid green;
+}
+
+#table_div th {
+  background-color: green;
+  color: white;
+}
+#table_div caption {
+  background-color: rgba(0, 128, 0, 0.514);
+  color: white;
+}
+#table_div button {
+  background-color: green;
+  color: white;
+}
+#table_div th {
+  border: 1px solid green;
+}
+
+#table_div td {
+  border: 1px solid green;
+}
+
+#line {
+  background-color: rgba(0, 0, 255, 0.082);
+}
+div#newaccount legend,
+.btn {
+  background-color: blueviolet;
+  color: white;
+}
+#compare {
+  border: 1px solid orangered;
+}
+#compare th {
+  background-color: orangered;
+  color: white;
+}
+#compare td {
+  border: 1px solid orangered;
+}
+
+#note {
+  background-color: rgba(255, 68, 0, 0.212);
+}
+
+#summary {
+  border: 1px solid black;
+  background-color: rgba(128, 128, 128, 0.116);
+}
+#summary td {
+  border: 1px solid black;
+}
+
+#contact {
+  background-color: rgb(28, 28, 70);
+  color: white;
+}
+
+footer {
+  background-color: rgb(28, 28, 70);
+  color: white;
+}
+footer a {
+  color: white;
+}

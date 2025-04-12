@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mega Mart- Complete HTML assignment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Head Section -->
+    <div id="head">
+      <h1>Mega Mart</h1>
+      <hr />
+    </div>
+    <div id="tagline">
+      <h2>Your Complete shopping Destination</h2>
+    </div>
+    <!-- Menu Bar -->
+    <div id="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Electronics</a></li>
+        <li><a href="#">Fasion</a></li>
+        <li><a href="#">Books</a></li>
+        <li><a href="#">cart</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div id="search">
+      <!-- Search Section -->
+      <h2>Product Search</h2>
+      <form action="" method="post">
+        <input
+          type="search"
+          placeholder="Search over 10,000 products"
+          id="Sea"
+        />
+        <input type="submit" value="Search" id="searchbtn" />
+      </form>
+    </div>
+    <div>
+      <!-- Table Section -->
+      <h2>Featured Products</h2>
+      <table id="table_div">
+        <caption>
+          Todays Special Offer
+        </caption>
+        <thead>
+          <th>Product</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Action</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <img
+                src="images/headphone.jpg"
+                alt="Headphones"
+                width="200"
+                height="200"
+              />
+              <h3>Wireless Headphones</h3>
+            </td>
+            <td>
+              <p>Premium Noise cancelling bluetooth headphones</p>
+              <ul>
+                <li>40mm drivers</li>
+                <li>30-hours battery</li>
+                <li>IPX4 water proof</li>
+              </ul>
+            </td>
+            <td><del>$199.99</del><br /><u>$149.99</u></td>
+            <td><p>In Stock</p></td>
+            <td>
+              <button>Add to Cart</button>
+              <p>Available quantities 15</p>
+            </td>
+          </tr>
+          <tr id="line">
+            <td colspan="5">
+              <hr />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src="images/smart-watch.webp"
+                alt="Smart Watch"
+                width="200"
+                height="200"
+              />
+              <h3>Smart Watch Pro</h3>
+            </td>
+            <td>
+              <p>Advanced fitness tracking smart watch</p>
+              <ol>
+                <li>Heart rate monitor</li>
+                <li>GPS Tracking</li>
+                <li>IWater Resistant</li>
+              </ol>
+            </td>
+            <td>$149.99</td>
+            <td><p>Low Stock</p></td>
+            <td>
+              <button>Add to Cart</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- New Account Section -->
+    <div id="newaccount">
+      <h2>Create New Account</h2>
+      <form action="">
+        <!-- Personal Information -->
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="first-name">First Name:</label
+          ><input type="text" id="first-name" required />
+          <label for="last-name">Last Name:</label>
+          <input type="text" id="last-name" required />
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" required />
+          <label for="male">Gender: </label>
+          <label for="male">Male</label>
+          <input type="radio" name="Gender" id="male" />
+          <label for="female">Female</label>
+          <input type="radio" name="Gender" id="female" />
+        </fieldset>
+        <!-- Account Details -->
+        <fieldset>
+          <legend>Account Details</legend>
+          <label for="email">Email:</label>
+          <input type="email" name="" id="email" required />
+          <label for="pw">Password:</label>
+          <input type="password" name="" id="pw" required />
+          <label for="phn">Phone Number:</label>
+          <input type="number" name="" id="phn" required />
+          <label for="subscribe">Subscribe to Newsletter</label>
+          <input type="checkbox" name="subscribe" id="subscribe" />
+        </fieldset>
+        <!-- Shipping address -->
+        <fieldset>
+          <legend>Shipping Address</legend>
+          <label for="address">Street Address:</label>
+          <textarea name="" id="address" required></textarea>
+          <label for="country">Country:</label>
+          <input type="text" name="" id="country" required />
+          <label for="zip">ZIP Code:</label>
+          <input type="number" name="" id="zip" required />
+        </fieldset>
+        <input type="submit" value="Create Account" class="btn" />
+        <input type="reset" value="Clear Form" />
+      </form>
+    </div>
+    <!-- Product comparison  -->
+    <div>
+      <h2>Product Comparison</h2>
+      <table id="compare">
+        <thead>
+          <th>Featured</th>
+          <th>Basic Model</th>
+          <th>Pro Model</th>
+          <th>Premium Model</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Battery Life</strong></td>
+            <td>08 hrs</td>
+            <td>12 hrs</td>
+            <td>24 hrs</td>
+          </tr>
+          <tr>
+            <td><strong>Water Resistance</strong></td>
+            <td>IPX4</td>
+            <td>IPX7</td>
+            <td>IP68</td>
+          </tr>
+          <tr>
+            <td><strong>Warrenty</strong></td>
+            <td>01 year</td>
+            <td colspan="2">02 years</td>
+          </tr>
+          <tr id="note">
+            <td colspan="4">* All prices include VAT</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Checkout Process  -->
+    <h2>Checkout Process</h2>
+    <form action="GET">
+      <!-- payment information -->
+      <fieldset>
+        <legend>Payment information</legend>
+        <label for="card_type">Card Type:</label>
+        <input type="radio" name="card" id="visa" />
+        <label for="visa">Visa</label>
+        <input type="radio" name="card" id="master" />
+        <label for="master">Master</label>
+        <input type="radio" name="card" id="american" />
+        <label for="american">American Express</label>
+        <br />
+        <label for="card_number">Card Number:</label>
+        <input type="number" required />
+        <label for="Exp">Expiry Date:</label>
+        <input type="month" placeholder="---- --" required />
+      </fieldset>
+      <!-- order summary -->
+      <fieldset>
+        <legend>Order Summary</legend>
+        <table id="summary">
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <tr>
+            <td>Wireless Headphones</td>
+            <td>2</td>
+            <td>$299.98</td>
+          </tr>
+          <tr>
+            <td>Shipping</td>
+            <td>-</td>
+            <td>$15</td>
+          </tr>
+          <tr>
+            <td colspan="2">Total</td>
+            <td>$314.98</td>
+          </tr>
+        </table>
+      </fieldset>
+      <input type="submit" value="Complete Purchase" />
+    </form>
+    <!-- Product Video  -->
+    <h2>Product Video</h2>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/CHSnz0bCaUk?si=d3miN3L1UheuLYHM"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <br />
+    <!-- product Audio  -->
+    <h2>Product Audio Description</h2>
+    <audio src="./audios/audio.mp3" controls autoplay loop></audio>
+    <!-- contact Us -->
+    <div id="contact">
+      <h2>Contact Us</h2>
+      <em>Email:</em>
+      <a href="mailto:support@megamart.com">support@megamart.com</a>
+      <br />
+      <em>Phone:</em>
+      <a href="+92345663545">+1(23)456-789</a>
+      <br />
+      <em>Address:</em>
+      <address>123 Commerse street New York , NY123456</address>
+    </div>
+    <div id="map">
+      <p>Here is our Location</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115819.41033102192!2d66.97727349457229!3d24.885816098593782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e06651d4bbf%3A0x9cf92f44555a0c23!2sKarachi%2C%20Pakistan!5e0!3m2!1sen!2s!4v1743662460495!5m2!1sen!2s"
+        width="600"
+        height="450"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <h3>Checkout the Latest Video</h3>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/Gx5qb1uHss4?si=N3T3QMdBRkExwQXC"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <footer>
+      <h2>Quick Links</h2>
+      <ul>
+        <li><a href="">Terms of service</a></li>
+        <li><a href="">Privacy policy</a></li>
+        <li><a href="">Return Policy</a></li>
+      </ul>
+      <p>&copy; 2023 Mega mart allrights reserved.</p>
+      <p>Follow us on <a href="#">social media</a></p>
+    </footer>
+  </body>
+</html>
