@@ -3,19 +3,12 @@
   width: 24%;
   display: inline-block;
   overflow: hidden;
-  text-align: center;
   margin: 5px;
 }
-
 .img {
   height: 300px;
   width: 100%;
   border-radius: 10px;
-}
-.text-div {
-  width: 78%;
-  display: inline-block;
-  text-align: left;
 }
 .para {
   opacity: 0.8;
@@ -23,13 +16,14 @@
 .price ins {
   font-weight: bold;
 }
-.star-div {
-  width: 20%;
-  display: inline-block;
-  align-items: flex-end;
-  overflow: hidden;
+.star-sec {
+  margin-left: 90px;
 }
 .star {
   width: 20px;
   height: 20px;
+  display: inline-block;
+}
+h3 {
+  display: inline-block;
 }
