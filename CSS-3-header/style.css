@@ -1,0 +1,13 @@
+.header {
+  text-align: center;
+  background-color: bisque;
+}
+.logo {
+  display: inline-block;
+  padding-right: 200px;
+}
+nav {
+  display: inline-block;
+}
+.btn {
+}
