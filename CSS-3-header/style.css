@@ -1,13 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .header {
-  text-align: center;
-  background-color: bisque;
+  background-color: rgba(109, 108, 108, 0.11);
+  margin: auto;
+  justify-content: space-between;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 .logo {
   display: inline-block;
-  padding-right: 200px;
+  min-width: 20%;
 }
 nav {
   display: inline-block;
+  min-width: 59%;
+  text-align: center;
+}
+nav a {
+  padding: 10px;
+  text-decoration: none;
+  color: black;
 }
 .btn {
+  width: 100px;
+  margin-left: 170px;
+  background-color: rgba(105, 104, 102, 0.144);
+  border: 1px solid rgba(105, 104, 102, 0.384);
+  border-radius: 10px;
+  height: 40px;
+  cursor: pointer;
 }
