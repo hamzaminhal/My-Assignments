@@ -15,6 +15,7 @@ body {
 }
 .table th {
   background-color: grey;
+  color: aliceblue;
 }
 .table tr:nth-child(odd) {
   background-color: rgba(120, 194, 223, 0.342);
