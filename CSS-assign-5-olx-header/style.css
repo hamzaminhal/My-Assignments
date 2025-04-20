@@ -83,6 +83,9 @@ header {
   text-align: center;
   border: 5px solid black;
 }
+.container {
+  width: 100%;
+}
 .menu {
   display: flex;
   align-items: center;
