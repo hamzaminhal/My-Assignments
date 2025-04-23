@@ -39,19 +39,19 @@ nav ul {
   font-size: 100px;
 }
 .section-1 {
-  background-image: url(./images/img1.jpeg);
+  background-image: url("images/img-1.jpg");
 }
 .txt {
   padding: 50px;
 }
 .section-2 {
-  background-image: url(./images/img-2.jpeg);
+  background-image: url("images/img-2.jpg");
 }
 .section-3 {
-  background-image: url(./images/img3.jpg);
+  background-image: url("images/img-3.jpg");
 }
 .section-4 {
-  background-image: url(./images/img-4.jpeg);
+  background-image: url("images/img-4.jpg");
 }
 footer {
   display: flex;
