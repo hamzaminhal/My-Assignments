@@ -5,6 +5,7 @@ body {
   border: 1 px solid black;
   border-spacing: 0;
   border-collapse: collapse;
+  border-spacing: 0;
   text-align: center;
   margin: auto;
 }
