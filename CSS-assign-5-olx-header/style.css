@@ -9,6 +9,7 @@ header {
   position: sticky;
   top: 0px;
   background-color: white;
+  z-index:2;
 }
 .first {
   display: flex;
