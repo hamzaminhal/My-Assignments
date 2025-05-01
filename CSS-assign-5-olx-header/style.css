@@ -6,6 +6,9 @@ body {
 header {
   /* background-color: bisque; */
   height: 120px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
 }
 .first {
   display: flex;
@@ -28,6 +31,9 @@ header {
   display: flex;
   align-items: center;
   height: 70px;
+  width: 100%;
+  flex-shrink: 1;
+
   /* background-color: yellowgreen; */
 }
 .location {
@@ -36,11 +42,13 @@ header {
   display: flex;
   align-items: center;
   height: 45px;
+  flex: 0;
 }
 .location input {
   border: none;
   outline: none;
   font-size: 20px;
+  flex-shrink: 0;
 }
 .search {
   border: 1px solid rgba(0, 0, 0, 0.158);
@@ -49,23 +57,30 @@ header {
   display: flex;
   align-items: center;
   margin-left: 20px;
+  position: relative;
+  flex-shrink: 1;
+  width: 700px;
 }
 .search input {
   border: none;
   outline: none;
   font-size: 15px;
-  width: 700px;
+  width: 100%;
+  min-width: 50px;
 }
 .search svg {
   background-color: black;
   color: white;
   padding: 8px;
   border-radius: 3px;
+  position: absolute;
+  right: 1px;
 }
 .buttons {
   display: flex;
   align-items: center;
   padding-left: 20px;
+  flex-shrink: 0;
 }
 .second a {
   color: black;
@@ -82,6 +97,7 @@ header {
   margin-left: 20px;
   text-align: center;
   border: 5px solid black;
+  flex: 1;
 }
 .container {
   width: 100%;
@@ -89,6 +105,7 @@ header {
 .menu {
   display: flex;
   align-items: center;
+  flex: 1;
 }
 .drop {
   display: flex;
@@ -98,31 +115,49 @@ header {
 .menu-items ul {
   display: flex;
   align-items: center;
+  gap: 20px;
   list-style-type: none;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.menu-items ul li a {
+  text-decoration: none;
+  color: black;
 }
 
-.menu-items ul li {
+/* .menu-items ul li {
   margin-left: 15px;
+} */
+.flash {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px;
+}
+.pak {
+  display: none;
 }
 .allcat {
   display: flex;
   align-items: center;
+  /* justify-content: space-evenly; */
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .cat-card {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   margin: 5px 15px;
   width: 125px;
-  height: 150px;
+  height: 160px;
 }
 .cat-card img {
-  width: 95px;
-  display: flex;
-  align-items: center;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
 }
 .cat-card figcaption {
   text-align: center;
@@ -170,4 +205,91 @@ header {
 .p1 {
   font-weight: bold;
   padding: 5px 0;
+}
+footer {
+  display: flex;
+  /* align-items: center; */
+}
+.box {
+  flex-grow: 1;
+}
+.box ul {
+  padding: 0;
+}
+.box ul li {
+  list-style-type: none;
+}
+.social {
+  flex-grow: 2;
+}
+.social svg {
+  width: 30px;
+  height: 30px;
+}
+@media screen and (max-width: 700px) {
+  .buttons {
+    display: none;
+    .menu-items {
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .second {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: cover;
+  }
+  .flash {
+    margin-top: 10px;
+  }
+  .allcat {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
+  }
+
+  .menu {
+    display: none;
+  }
+  .buttons {
+    display: none;
+  }
+  .cat-div h2 {
+    text-align: center;
+  }
+  .pak {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .location {
+    display: none;
+  }
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+  }
+  footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .box ul {
+    display: none;
+  }
 }
