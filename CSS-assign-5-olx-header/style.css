@@ -2,6 +2,8 @@ body {
   padding-left: 30px;
   padding-top: 10px;
   font-family: Helvetica, sans-serif;
+  max-width: 1440px;
+  margin:0 auto;
 }
 header {
   /* background-color: bisque; */
@@ -291,7 +293,7 @@ footer {
   footer {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .box ul {
     display: none;
