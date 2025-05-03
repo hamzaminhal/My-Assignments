@@ -184,7 +184,8 @@ header {
   border: 1px solid rgba(0, 0, 0, 0.158);
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px;
+  gap: 10px;
+
 }
 .product-card h2,
 .product-card h5 {
