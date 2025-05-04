@@ -2,14 +2,19 @@ body {
   padding-left: 30px;
   padding-top: 10px;
   font-family: Helvetica, sans-serif;
+  /* min-width: 100%; */
+  /* overflow-x: hidden; */
+  max-width: 1280px;
+  margin: 0px auto;
 }
 header {
   /* background-color: bisque; */
   height: 120px;
+  width: 100%;
   position: sticky;
   top: 0px;
   background-color: white;
-  z-index:2;
+  z-index: 10;
 }
 .first {
   display: flex;
@@ -134,6 +139,9 @@ header {
   overflow: hidden;
   padding: 10px;
 }
+.flash img {
+  width: 100%;
+}
 .pak {
   display: none;
 }
@@ -167,6 +175,8 @@ header {
 .product-cards {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
 }
 .product-img {
   width: 350px;
@@ -177,14 +187,12 @@ header {
 .product-card {
   width: 300px;
   height: 300px;
-  /* display: flex; */
   position: relative;
   flex-wrap: wrap;
-  align-items: top;
+  align-items: center;
   border: 1px solid rgba(0, 0, 0, 0.158);
   border-radius: 10px;
   overflow: hidden;
-  margin: 10px;
 }
 .product-card h2,
 .product-card h5 {
@@ -230,12 +238,11 @@ footer {
 @media screen and (max-width: 700px) {
   .buttons {
     display: none;
+    .menu-items {
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
   }
-  .menu-items {
-    flex-wrap: nowrap;
-    overflow: hidden;
-   }
-  
 }
 
 @media screen and (max-width: 400px) {
@@ -260,8 +267,8 @@ footer {
   }
   .allcat {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    overflow-y: hidden;
     flex-wrap: nowrap;
   }
 
@@ -290,7 +297,6 @@ footer {
   footer {
     display: flex;
     flex-direction: column;
-    margin-left: 10px;
   }
   .box ul {
     display: none;
