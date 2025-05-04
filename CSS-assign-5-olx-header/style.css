@@ -292,7 +292,7 @@ footer {
   .location {
     display: none;
   }
-  .product-card {
+  .product-cards {
     display: flex;
     flex-direction: column;
     margin: auto;
