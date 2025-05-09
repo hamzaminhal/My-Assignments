@@ -4,14 +4,18 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .container {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
   display: grid;
   grid-template-areas:
-    "header header header header"
-    "left main main right";
+    "header header header"
+    "left main right";
   background-color: #f0f2f5;
-  max-width: 1440px;
+  /* max-width: 1440  px; */
   margin: auto;
   font-size: large;
+  justify-content: space-between;
 }
 
 header {
@@ -22,6 +26,7 @@ header {
   border-top: 0.5px solid grey;
   /* justify-content: space-between; */
   width: 100%;
+  background-color: #075ce5;
 }
 header .logo {
   grid-area: logo;
@@ -65,8 +70,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: bisq ue; */
-  width: 65%;
+  background-color: bisque;
+  width: 100%;
+  /* height: 100vh; */
+  flex-shrink: 0;
 }
 main .post-card {
   display: flex;
@@ -114,9 +121,17 @@ main .post-card .s-line {
   align-items: center;
 }
 .left {
+  display: flex;
+  flex-direction: column;
   grid-area: left;
+  width: 100%;
+  /* height: 100vh; */
   padding-left: 10px;
   font-weight: 500;
+  overflow-y: scroll;
+  background-color: blueviolet;
+  flex-shrink: 0;
+  /* flex-grow: 10; */
 }
 .a1 {
   width: 30px;
@@ -204,6 +219,14 @@ main .post-card .s-line {
   flex-shrink: 0;
   /* padding-bottom: 20px; */
 }
-.right {
+div .right {
+  width: 100%;
+  /* height: 100vh; */
+  overflow-y: scroll;
   grid-area: right;
+  display: flex;
+  flex-direction: column;
+  background-color: yellow;
+  flex-wrap: wrap;
+  flex-shrink: 0;
 }
