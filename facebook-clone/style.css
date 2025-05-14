@@ -11,8 +11,8 @@
   grid-template-areas:
     "header header header"
     "left main right";
+  grid-template-columns: 25% 50% 25%;
   background-color: #f0f2f5;
-  /* max-width: 1440  px; */
   margin: auto;
   font-size: large;
   justify-content: space-between;
@@ -21,19 +21,17 @@
 header {
   grid-area: header;
   display: grid;
-  grid-template-areas: "logo center center right-btns";
+  grid-template-areas: "logo center right-btns";
+  grid-template-columns: 300px auto 300px;
   background-color: white;
   border-top: 0.5px solid grey;
-  /* justify-content: space-between; */
   width: 100%;
-  background-color: #075ce5;
 }
 header .logo {
   grid-area: logo;
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  /* background-color: blue; */
 }
 header .logo .facebook-search {
   padding: 0px 5px;
@@ -55,14 +53,39 @@ header .menu {
   grid-area: center;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  /* background-color: aqua; */
+  justify-content: center;
+  gap: 90px;
+  padding: 0px 30px;
 }
 header .right-btns {
   grid-area: right-btns;
   display: flex;
   align-items: center;
   justify-content: end;
+  gap: 10px;
+  margin-right: 15px;
+}
+.bg-grey {
+  background-color: #d6d9dd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.flex img {
+  width: 30px;
+  border-radius: 10px;
+}
+.b1 {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 main {
@@ -70,10 +93,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: bisque;
   width: 100%;
-  /* height: 100vh; */
   flex-shrink: 0;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+.c-portion {
+  width: 75%;
 }
 main .post-card {
   display: flex;
@@ -82,7 +108,7 @@ main .post-card {
   width: 100%;
   background-color: white;
   margin-top: 10px;
-  padding: 0px 10px;
+  /* padding: 0px 10px; */
   border-radius: 10px;
   height: 130px;
 }
@@ -90,6 +116,7 @@ main .post-card .f-line {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 .f-line input {
   background-color: #f0f2f5;
@@ -110,7 +137,7 @@ main .post-card .s-line {
   align-items: center;
   justify-content: space-between;
   margin-top: 15px;
-  padding-left: 20px;
+  padding: 0px 20px;
 }
 .s-line img {
   width: 25px;
@@ -125,13 +152,14 @@ main .post-card .s-line {
   flex-direction: column;
   grid-area: left;
   width: 100%;
-  /* height: 100vh; */
   padding-left: 10px;
   font-weight: 500;
   overflow-y: scroll;
-  background-color: blueviolet;
+  scrollbar-width: none;
   flex-shrink: 0;
-  /* flex-grow: 10; */
+}
+.left:hover {
+  scrollbar-width: thin;
 }
 .a1 {
   width: 30px;
@@ -147,12 +175,13 @@ main .post-card .s-line {
   align-items: center;
   margin-top: 10px;
 }
+
 .arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background-color: #d6d9dd;
   border-radius: 50%;
   margin: 0 20px 10px 0px;
@@ -219,14 +248,77 @@ main .post-card .s-line {
   flex-shrink: 0;
   /* padding-bottom: 20px; */
 }
+.feed-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.feed-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.feed-card-img {
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.feed-heading {
+  font-weight: 700;
+}
+.feed-card-main-img {
+  width: 100%;
+  overflow: hidden;
+  /* margin: 10px; */
+}
+.txt {
+  margin: 10px;
+}
+.feed-card-main-img img {
+  width: 100%;
+}
+.like {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  height: 50px;
+}
+.fc-icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 div .right {
   width: 100%;
   /* height: 100vh; */
   overflow-y: scroll;
+  scrollbar-width: none;
   grid-area: right;
   display: flex;
   flex-direction: column;
-  background-color: yellow;
-  flex-wrap: wrap;
+  /* background-color: yellow; */
+  flex-wrap: nowrap;
   flex-shrink: 0;
+  gap: 10px;
+}
+.right:hover {
+  scrollbar-width: thin;
+}
+.a2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.con {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
