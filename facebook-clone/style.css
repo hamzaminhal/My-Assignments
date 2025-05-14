@@ -14,26 +14,26 @@
   grid-template-columns: 25% 50% 25%;
   background-color: #f0f2f5;
   margin: auto;
+  /* max-width: 1440px; */
   font-size: large;
   justify-content: space-between;
 }
 
 header {
   grid-area: header;
-  display: grid;
-  grid-template-areas: "logo center right-btns";
-  grid-template-columns: 300px auto 300px;
+  display: flex;
   background-color: white;
   border-top: 0.5px solid grey;
   width: 100%;
+  justify-content: space-between;
 }
-header .logo {
-  grid-area: logo;
+.logo {
   display: flex;
   align-items: center;
   padding: 10px 20px;
+  flex: 1;
 }
-header .logo .facebook-search {
+.logo .facebook-search {
   padding: 0px 5px;
   margin-left: 5px;
   display: flex;
@@ -41,29 +41,31 @@ header .logo .facebook-search {
   border-radius: 50px;
   height: 38px;
   background-color: #f0f2f5;
+  flex: 2;
 }
 header .logo .facebook-search input {
   background-color: inherit;
   border: none;
   outline: none;
   padding-left: 5px;
-  width: 200px;
+  /* width: 200px; */
 }
-header .menu {
-  grid-area: center;
+.menu {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 90px;
-  padding: 0px 30px;
+  justify-content: space-evenly;
+  /* gap: 90px; */
+  /* padding: 0px 30px; */
+  flex: 2;
+  flex-shrink: 1;
 }
-header .right-btns {
-  grid-area: right-btns;
+.right-btns {
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 10px;
   margin-right: 15px;
+  flex: 1;
 }
 .bg-grey {
   background-color: #d6d9dd;
@@ -296,7 +298,7 @@ main .post-card .s-line {
   align-items: center;
   gap: 20px;
 }
-div .right {
+.right {
   width: 100%;
   /* height: 100vh; */
   overflow-y: scroll;
@@ -321,4 +323,74 @@ div .right {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    width: 100%;
+    grid-template-areas:
+      "header header header"
+      "left main main";
+  }
+  .facebook-search {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .right-btns {
+    display: none;
+  }
+  .logo .facebook-search input {
+    display: none;
+  }
+}
+@media screen and (max-width: 400px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "main main main";
+  }
+  header {
+    flex-wrap: wrap;
+  }
+  .logo {
+    order: 1;
+    flex: 1;
+  }
+  .menu {
+    order: 3;
+    width: 100%;
+  }
+  .right-btns {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    order: 2;
+    justify-content: space-evenly;
+    flex: 2;
+  }
+  .facebook-search {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo .facebook-search input {
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .right {
+    display: none;
+  }
+  .main {
+    width: 100%;
+  }
+  .c-portion {
+    width: 100%;
+  }
 }
