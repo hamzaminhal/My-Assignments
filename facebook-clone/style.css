@@ -289,8 +289,7 @@ main .post-card .s-line {
 .like {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 80px;
+  justify-content: space-evenly;
   height: 50px;
 }
 .fc-icon {
