@@ -20,16 +20,16 @@ document.write("Total Bill : Rs " + totalBill + "<br />");
 
 if (totalBill > 5000) {
   discount = (totalBill * 20) / 100;
-  document.write("Discount  : Rs " + discount + "<br />");
+  document.write("20% Discount  : Rs " + discount + "<br />");
 } else if ((totalBill > 3000) & (totalBill <= 5000)) {
   discount = (totalBill * 15) / 100;
-  document.write("Discount  : Rs " + discount + "<br />");
+  document.write("15% Discount  : Rs " + discount + "<br />");
 } else if ((totalBill > 1000) & (totalBill <= 3000)) {
   discount = (totalBill * 10) / 100;
-  document.write("Discount : Rs  " + discount + "<br />");
+  document.write("10% Discount : Rs  " + discount + "<br />");
 } else if (totalBill <= 1000) {
   discount = 0;
-  document.write("Discount : Rs " + discount + "<br />");
+  document.write("0% Discount : Rs " + discount + "<br />");
 }
 var amountPay = totalBill - discount;
 document.write("AMount to Pay : Rs " + amountPay + "<br />");
