@@ -32,4 +32,4 @@ if (totalBill > 5000) {
   document.write("0% Discount : Rs " + discount + "<br />");
 }
 var amountPay = totalBill - discount;
-document.write("AMount to Pay : Rs " + amountPay + "<br />");
+document.write("Amount to Pay : Rs " + amountPay + "<br />");
