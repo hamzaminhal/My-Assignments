@@ -2,6 +2,7 @@ var cities = ["Peshawar", "Lahore", "Karachi"];
 
 function showCities   () {
   var div = document.getElementById("one");
+  div.textContent='';
   var newCity = document.getElementById("text");
   for (i = 0; i < cities.length; i++) {
     var city = cities[i];
