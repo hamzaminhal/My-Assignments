@@ -1,4 +1,6 @@
-var cities = ["Peshawar", "Lahore", "Karachi"];
+var cities = retriewFromStaorage() || [];
+
+showCities();
 
 function showCities() {
   var div = document.getElementById("one");
@@ -22,10 +24,12 @@ function showCities() {
 function edit(index) {
   var editCity = prompt("Enter City Name", cities[index]);
   cities.splice(index, 1, editCity);
+  saveToStorage(cities);
   showCities();
 }
 function dlt(index) {
   cities.splice(index, 1);
+  saveToStorage(cities);
   showCities();
 }
 
@@ -37,6 +41,7 @@ function cityToAdd() {
     if (cities.indexOf(newCity.value) == -1) {
       var div = document.getElementById("one");
       cities.push(newCity.value);
+      saveToStorage(cities);
       newCity.value = "";
       showCities();
     } else {
@@ -44,4 +49,14 @@ function cityToAdd() {
       newCity.value = "";
     }
   }
+}
+
+function saveToStorage(citiesList) {
+  localStorage.setItem("cities", JSON.stringify(citiesList));
+}
+
+function retriewFromStaorage() {
+  var citiesList = localStorage.getItem("cities");
+  var newcities = JSON.parse(citiesList);
+  return newcities;
 }
