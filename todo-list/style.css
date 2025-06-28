@@ -81,6 +81,7 @@ h2{
 @media screen and (max-width:400px){
     .container-div{
         width: 100%;
-        margin: 10px;
+        margin: 10px ;
+        margin-right: 10px;
     }
 }
