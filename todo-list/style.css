@@ -1,0 +1,86 @@
+/* *{
+    background-color: rgb(76, 240, 218);
+    color: rgb(19, 1, 1);
+} */
+
+.container-div{
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    overflow: hidden;
+    min-height: 500px;
+    border: 3px solid rgb(14, 78, 69);
+    border-radius: 20px;
+    position: relative;
+}
+h2{
+    text-align: center;
+}
+.sLine{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input{
+    width: 60%;
+    margin-left: 20px;
+    /* background-color: blue; */
+    display: flex;
+    justify-content: left;
+    border: 1px dotted rgb(19, 1, 1);
+    border-radius: 10px;
+    position: relative;
+}
+#input-box{
+    width: 80%;
+    height: 30px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    /* background-color: rgba(19, 1, 1, 0.473); */
+}
+.btn1{
+    background-color: rgb(19, 1, 1);
+    color: aliceblue;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+}
+.list-div{
+    margin: 0 55px 0px 20px;
+    font-size: 20px;
+    display: flex;
+    /* flex-wrap: wrap; */
+
+}
+.listItems  {
+    position: relative;
+    background-color: aqua;
+    display: flex;
+    overflow: hidden;
+
+}
+.svg{
+    position: absolute;
+    right: 10px;
+}
+
+.svg1{
+    position: absolute;
+    right: 30px;
+}
+@media screen and (max-width:786px){
+    .container-div{
+        width: 80%;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width:400px){
+    .container-div{
+        width: 100%;
+        margin: 10px;
+    }
+}
