@@ -4,6 +4,9 @@ body{
     color: #F3F4F6;
     
 }
+.heading{
+    font-size: 40px;
+}
 #nextBtn{
     visibility: visible;
 }
@@ -57,6 +60,6 @@ body{
 @media screen and (max-width:400px) {
 
     #quizPart{
-        width: 100%;
+        width: 99%;
     }
 }
