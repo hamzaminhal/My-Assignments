@@ -42,6 +42,18 @@ body{
     color: aliceblue;
 }
 
+.score{
+    width: 400px;
+    background-color: #2a2a40;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-size: 30px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
 @media screen and (max-width:400px) {
 
     #quizPart{
