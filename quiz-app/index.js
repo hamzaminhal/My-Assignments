@@ -77,7 +77,6 @@ function nextQuestion() {
 function saveAns(clickedAns) {
   userAns = clickedAns.target.value;
   // clickedAns.target.classList.add("selected");
-  console.log(selectedDiv);
 }
 
 // End Quiz
