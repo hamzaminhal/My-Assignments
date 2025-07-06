@@ -55,33 +55,35 @@ function showQuestion() {
 
 //    Next Question
 
-function nextQuestion() {
-  if (userAns == questions[currentQuestion].correctOption) {
-    correctAnswers++;
-    score += 10;
+const nextQuestion = () => {
+  if (userAns == null) {
+    alert("Please select an option");
+  } else {
+    if (userAns == questions[currentQuestion].correctOption) {
+      correctAnswers++;
+      score += 10;
+    }
+    if (currentQuestion < questions.length - 1) {
+      currentQuestion++;
+      showQuestion();
+    }
   }
-  // debugger;
-  if (currentQuestion < questions.length - 1) {
-    currentQuestion++;
-    showQuestion();
-    // console.log(score);
-  }
+
   if (currentQuestion == questions.length - 1) {
     nextBtn.style.display = "none";
     endBtn.style.visibility = "visible";
   }
-}
+};
 
 // Save Answer
 
 function saveAns(clickedAns) {
   userAns = clickedAns.target.value;
-  // clickedAns.target.classList.add("selected");
 }
 
 // End Quiz
 
-function endQuiz() {
+const endQuiz = () => {
   if (userAns == questions[currentQuestion].correctOption) {
     correctAnswers++;
     score += 10;
@@ -91,4 +93,4 @@ function endQuiz() {
           Your Correct Ansers are : ${correctAnswers} <br />
           Your Total score is : ${score}
         </div>`;
-}
+};
