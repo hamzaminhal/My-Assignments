@@ -1,3 +1,5 @@
+//      Quiz Application
+
 let questionElement = document.querySelector("#question");
 let optionsElement = document.querySelector("#options");
 let nextQuestionBtn = document.querySelector("#next-question");
@@ -12,6 +14,8 @@ let totalTime = 10;
 let currentQuestion = 0;
 let userAns = null;
 let score = 0;
+
+// QUESTIONS ARRAY
 
 const questions = [
   {
@@ -41,9 +45,13 @@ const questions = [
   },
 ];
 
+// FUNCTION TO DISABLE BUTTONS
+
 const disableBtn = (btn) => {
   btn.disable = true;
 };
+
+// TIMER
 
 function timer() {
   totalTime = 10;
@@ -61,6 +69,8 @@ function timer() {
     }
   }, 1000);
 }
+
+//   FUNCTION TO SHOW QUESTIONS
 
 function showQuestion() {
   questionElement.textContent =
@@ -85,13 +95,19 @@ function showQuestion() {
     });
   });
 }
+
 showQuestion();
+
+// FUNCTION TO SAVE ANSWER
 
 function saveAns() {
   if (userAns == questions[currentQuestion].correctOption) {
     score += 10;
   }
 }
+
+//   FUNCTION FOR NEXT QUESTION BUTTON
+
 const nextQuestion = () => {
   if (currentQuestion < questions.length - 1) {
     nextQuestionBtn.disabled = true;
@@ -105,7 +121,12 @@ const nextQuestion = () => {
     nextQuestionBtn.classList.add("display-none");
   }
 };
-nextQuestionBtn.addEventListener("click", nextQuestion);
+
+nextQuestionBtn.addEventListener("click", () => {
+  nextQuestion();
+});
+
+// FUNCTION FOR END QUIZ BUTTON
 
 const endQuiz = () => {
   saveAns();
@@ -125,11 +146,15 @@ const endQuiz = () => {
     msgBox.textContent = "You need to improve! Retake Quiz ";
   }
 };
+
 endQuizBtn.addEventListener("click", () => {
   endQuiz();
 });
 
+// RESTART QUIZ FUNCTION
+
 restartQuizBtn.addEventListener("click", () => {
+  userAns = null;
   currentQuestion = 0;
   score = 0;
   quizPart.classList.remove("display-none");
