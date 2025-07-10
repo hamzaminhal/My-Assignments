@@ -3,6 +3,9 @@ body{
     color: #f0f0f5;
     font-family: sans-serif;
 }
+h1{
+    padding: 10px;
+}
 
 .active{
     background-color: #4c5cff;
@@ -50,10 +53,7 @@ body{
 #quiz-part{
     position: relative;
 }
-#timer{
-    position: absolute;
-    right: 20px;
-}
+
 .result-part{
     text-align: center;
 }
@@ -79,6 +79,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    right: 0px;
 }
 .red{
     color: red;
@@ -91,10 +93,12 @@ body{
     .option{
         width: 50%;
     }
+    
 }
 
 @media screen and (max-width:400px) {
     .option{
         width: 100%;
     }
+    
 }

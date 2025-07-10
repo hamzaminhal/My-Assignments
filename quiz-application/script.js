@@ -52,8 +52,10 @@ const disableBtn = (btn) => {
 };
 
 // TIMER
-
 function timer() {
+  nextQuestionBtn.addEventListener("click", () => {
+    clearInterval(time);
+  });
   totalTime = 10;
   let time = setInterval(() => {
     if (totalTime <= 0) {
@@ -73,6 +75,7 @@ function timer() {
 //   FUNCTION TO SHOW QUESTIONS
 
 function showQuestion() {
+  timer();
   questionElement.textContent =
     currentQuestion + 1 + ". " + questions[currentQuestion].question;
   optionsElement.innerHTML = "";
@@ -80,7 +83,6 @@ function showQuestion() {
     optionsElement.innerHTML += `<div class="option">${option}</div>`;
   });
   let displayOptions = document.querySelectorAll(".option");
-  timer();
   displayOptions.forEach((element) => {
     element.addEventListener("click", () => {
       nextQuestionBtn.disabled = false;
