@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <title>Food</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 id="name" class="text-center"></h2>
+
+      <div id="recipe-card" class="recipe-card">
+        <div class="left">
+          <div id="img"></div>
+          <p class="heading">Ingredients</p>
+          <ul id="ingredients"></ul>
+        </div>
+        <div class="right">
+          <div class="details">
+            <h5>
+              Cuisine: <u><span id="cuisine"></span></u>
+            </h5>
+            <h5>
+              Difficulty: <u><span id="dificulty"></span></u>
+            </h5>
+            <h5>
+              Cooking Time: <u><span id="time"></span> Minutes</u>
+            </h5>
+            <h5>
+              Preparation Time: <u><span id="prepare-time"></span> Minutes</u>
+            </h5>
+            <h4>Instructions:</h4>
+            <ul id="instructions"></ul>
+          </div>
+          <div class="text-center btn-div">
+            <button class="btn btn-secondary btn-width" id="previous-recipe">
+              Previous Recipe
+            </button>
+            <button class="btn btn-primary btn-width" id="next-recipe">
+              Next Recipe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
