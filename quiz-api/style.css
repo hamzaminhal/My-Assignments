@@ -11,6 +11,10 @@ body {
   justify-content: center;
 }
 
+.question{
+  display: flex;
+  flex-wrap: wrap;
+}
 .hide{
     display: none;
 }
@@ -18,7 +22,7 @@ body {
   display: flex;
   min-height: 40px;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .option:hover,
 .active {
@@ -65,11 +69,13 @@ body {
 }
 
 .option{
-  min-width: 400px;
+  min-width: 300px;
   cursor: pointer;
   border-radius: 20px;
   padding-left: 10px;
   gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
 
 }
 .red{
@@ -86,8 +92,3 @@ body {
   
 }
 
-@media screen and (max-width:400px) {
-  .option{
-    max-width: 320px;
-  }
-}
