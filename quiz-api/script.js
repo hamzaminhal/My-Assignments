@@ -11,13 +11,16 @@ let restartBtn = document.querySelector("#restart-btn");
 let currentQuestion = 0;
 let score = 0;
 let userAns = null;
-let scorePercent = (score / 10) * 100;
 let totalime = 10;
 let questions = [];
 
 // timer
 const timerFunction = () => {
   nextBtn.addEventListener("click", () => {
+    clearInterval(timer);
+  });
+  endQuizBtn.addEventListener("click", () => {
+    timerElement.classList.add("hide");
     clearInterval(timer);
   });
   totalime = 10;
@@ -57,6 +60,7 @@ const showQuestions = () => {
       index + 1
     }. <span class="option">${option}</span></div>`;
   });
+  totalOptions = totalOptions.splice(rnd, 1);
   let alloptions = document.querySelectorAll(".alloption");
   let options = document.querySelectorAll(".option");
   options.forEach((option, index, options) => {
@@ -65,7 +69,7 @@ const showQuestions = () => {
       nextBtn.disabled = false;
       option.classList.add("active");
       userAns = option.textContent;
-      console.log(options);
+      // console.log(options);
       options.forEach((option) => {
         if (option.textContent != userAns) {
           option.classList.remove("active");
@@ -78,9 +82,9 @@ const showQuestions = () => {
 const saveAns = () => {
   if (userAns === questions.results[currentQuestion].correct_answer) {
     score++;
-    console.log(score);
   }
 };
+
 // function for the first time to load
 
 (function () {
@@ -97,6 +101,7 @@ const saveAns = () => {
 })();
 
 // code for next question button
+
 function nextQuestionFunction() {
   if (currentQuestion < questions.results.length - 1) {
     saveAns();
@@ -116,6 +121,7 @@ nextBtn.addEventListener("click", () => {
 //end quiz button
 function endQuizFunction() {
   saveAns();
+  timerElement.style.visibility = "hidden";
   quizPart.classList.add("hide");
   resultPart.classList.remove("hide");
   endQuizBtn.classList.add("hide");
@@ -124,6 +130,7 @@ function endQuizFunction() {
   <div>Your Total Score is ${score} / 10</div>
   <div id="msg"></div>`;
   let msgBox = document.querySelector("#msg");
+  let scorePercent = (score / 10) * 100;
   if (scorePercent < 50) {
     msgBox.textContent = `You need to improve`;
     msgBox.classList.add("red");
@@ -146,7 +153,7 @@ restartBtn.addEventListener("click", () => {
   restartBtn.classList.add("hide");
   quizPart.classList.remove("hide");
   resultPart.classList.add("hide");
-  timerElement.classList.remove("hide");
+  timerElement.style.visibility = "visible";
   score = 0;
   userAns = null;
   currentQuestion = 0;
