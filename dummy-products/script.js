@@ -1,10 +1,12 @@
 let api = "https://dummyjson.com/products";
+const loader = document.getElementById("loader");
 let productContainer = document.querySelector("#product-container");
 (async function () {
   let res = await fetch(api);
   let data = await res.json();
   let { products } = data;
   console.log(products);
+  loader.style.display = "none";
   showCards(products);
 })();
 
@@ -47,3 +49,7 @@ function showCards(products) {
     `;
   });
 }
+
+window.addEventListener("load", function () {
+  loader.style.opacity = "1";
+});
