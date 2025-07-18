@@ -26,7 +26,6 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       overflow: hidden;
       transition: 0.3s ease;    
-      min-height: 550px;
     }
 
     .product-card:hover {
@@ -90,8 +89,8 @@
       color: #ffcc00;
     }
 
-    @media screen and (max-width:400px) {
+    /* @media screen and (max-width:400px) {
       .product-card{
         width: 100%;
       }
-    }
+    } */
