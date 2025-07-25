@@ -1,5 +1,4 @@
 // initialization of variables
-
 let modal = document.getElementById("authModal");
 let modalTitle = document.getElementById("modalTitle");
 let usernameField = document.getElementById("usernameField");
@@ -10,11 +9,14 @@ let authBtn = document.getElementById("authBtn");
 let msg = document.querySelector("#msg");
 let form = document.getElementById("authForm");
 let loginBtn = document.getElementById("loginBtn");
-let profile = document.getElementById("user");
+let profile = document.getElementById("profile");
+let userDetails = document.getElementById("details");
+let loggedUsername = document.getElementById("logged-username");
+let loggedEmail = document.getElementById("logged-email");
 let users = JSON.parse(localStorage.getItem("users")) || [];
+let click = true;
 
-//   User class
-
+// User class
 class User {
   constructor(userName, email, password) {
     this.userName = userName;
@@ -23,8 +25,7 @@ class User {
   }
 }
 
-//function to show model
-
+// Show modal
 function showModal(type) {
   if (type === "login") {
     modalTitle.textContent = "Login";
@@ -37,18 +38,15 @@ function showModal(type) {
     authBtn.textContent = "Signup";
     msg.innerHTML = `Already registered <a href="javascript:void(0)" onclick="showModal('login')">Login</a> here`;
   }
-
   modal.style.display = "flex";
 }
 
-// function to close Model
-
+// Close modal
 function closeModal() {
   modal.style.display = "none";
 }
 
-// action after submission of form
-
+// Form submission
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -64,7 +62,7 @@ form.addEventListener("submit", function (e) {
     }
     const checkUser = users.find((user) => user.email === email);
     if (checkUser) {
-      alert("User ALready Exists");
+      alert("User already exists!");
     } else {
       const newUser = new User(userName, email, password);
       users.push(newUser);
@@ -76,16 +74,15 @@ form.addEventListener("submit", function (e) {
       (user) => user.email === email && user.password === password
     );
     if (existingUser) {
-      console.log(existingUser);
       alert(`Welcome back, ${existingUser.userName}!`);
       localStorage.setItem("logged", JSON.stringify(existingUser));
       loginBtn.style.display = "none";
       profile.style.display = "block";
       profile.innerHTML = `
-      <img src="" id='profile-img' alt="">
-            <span>${
-              JSON.parse(localStorage.getItem("logged")).userName
-            }</span>`;
+        <img src="images/mobile.png" id='profile-img' alt="profile image"/>
+        <span>${existingUser.userName}</span>
+      `;
+      attachProfileToggle();
     } else {
       alert("Invalid credentials!");
     }
@@ -94,3 +91,45 @@ form.addEventListener("submit", function (e) {
   form.reset();
   closeModal();
 });
+
+// Auto login if already logged in
+(function () {
+  const loggedUser = JSON.parse(localStorage.getItem("logged"));
+  if (loggedUser) {
+    loginBtn.style.display = "none";
+    profile.style.display = "block";
+    profile.innerHTML = `
+      <img src="images/mobile.png" id='profile-img' alt="profile image"/>
+      <span>${loggedUser.userName}</span>
+    `;
+    loggedUsername.textContent = loggedUser.userName;
+    loggedEmail.textContent = loggedUser.email;
+    attachProfileToggle();
+  }
+})();
+
+// Attach toggle function to profile image
+function attachProfileToggle() {
+  let profileImg = document.getElementById("profile-img");
+
+  if (profileImg) {
+    profileImg.addEventListener("click", () => {
+      console.log(profileImg);
+      if (click) {
+        userDetails.classList.remove("hide");
+        click = false;
+      } else {
+        userDetails.classList.add("hide");
+        click = true;
+      }
+    });
+  }
+}
+
+// Logout function
+function logout() {
+  localStorage.removeItem("logged");
+  loginBtn.style.display = "block";
+  profile.style.display = "none";
+  userDetails.classList.add("hide");
+}

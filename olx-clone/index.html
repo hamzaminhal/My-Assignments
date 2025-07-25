@@ -158,8 +158,15 @@
               onclick="showModal('login')"
               >Login</a
             >
+            <div id="details" class="hide">
+              <h6>User Name</h6>
+              <div id="logged-username"></div>
+              <h6>Email</h6>
+              <div id="logged-email"></div>
+              <button onclick="logout()" id="logoutBtn">Logout</button>
+            </div>
           </div>
-          <div id="user"></div>
+          <div id="profile"></div>
 
           <button class="sell">
             <!-- "+" SVG -->
@@ -188,6 +195,7 @@
       <div class="menu">
         <div class="drop">
           <span>ALL CATEGORIES</span>
+
           <!-- arrow down SVG -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
