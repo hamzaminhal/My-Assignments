@@ -1,13 +1,19 @@
-const modal = document.getElementById("authModal");
-const modalTitle = document.getElementById("modalTitle");
-const usernameField = document.getElementById("usernameField");
-const emailField = document.getElementById("emailField");
-const passwordField = document.getElementById("passwordField");
-const confirmPasswordField = document.getElementById("confirmPasswordField");
-const authBtn = document.getElementById("authBtn");
+// initialization of variables
+
+let modal = document.getElementById("authModal");
+let modalTitle = document.getElementById("modalTitle");
+let usernameField = document.getElementById("usernameField");
+let emailField = document.getElementById("emailField");
+let passwordField = document.getElementById("passwordField");
+let confirmPasswordField = document.getElementById("confirmPasswordField");
+let authBtn = document.getElementById("authBtn");
 let msg = document.querySelector("#msg");
 let form = document.getElementById("authForm");
-let users = [];
+let loginBtn = document.getElementById("loginBtn");
+let profile = document.getElementById("user");
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+//   User class
 
 class User {
   constructor(userName, email, password) {
@@ -16,6 +22,8 @@ class User {
     this.password = password;
   }
 }
+
+//function to show model
 
 function showModal(type) {
   if (type === "login") {
@@ -33,9 +41,13 @@ function showModal(type) {
   modal.style.display = "flex";
 }
 
+// function to close Model
+
 function closeModal() {
   modal.style.display = "none";
 }
+
+// action after submission of form
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -50,17 +62,32 @@ form.addEventListener("submit", function (e) {
       alert("Please fill all fields!");
       return;
     }
-
-    const newUser = new User(userName, email, password);
-    users.push(newUser);
-    console.log("Signup Success:", newUser);
-    alert("Signup successful!");
-  } else {
-    const existingUser = users.find((u) => u.email === email);
-    if (existingUser) {
-      alert(`Welcome back, ${existingUser.userName}!`);
+    const checkUser = users.find((user) => user.email === email);
+    if (checkUser) {
+      alert("User ALready Exists");
     } else {
-      alert("Invalid email or password!");
+      const newUser = new User(userName, email, password);
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      alert("Signup successful!");
+    }
+  } else {
+    const existingUser = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (existingUser) {
+      console.log(existingUser);
+      alert(`Welcome back, ${existingUser.userName}!`);
+      localStorage.setItem("logged", JSON.stringify(existingUser));
+      loginBtn.style.display = "none";
+      profile.style.display = "block";
+      profile.innerHTML = `
+      <img src="" id='profile-img' alt="">
+            <span>${
+              JSON.parse(localStorage.getItem("logged")).userName
+            }</span>`;
+    } else {
+      alert("Invalid credentials!");
     }
   }
 
