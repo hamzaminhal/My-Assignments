@@ -2,6 +2,7 @@
 // let loginElement = document.querySelector("#openLogin");
 
 // loginBtn.style.display = "none";
+let msg = document.querySelector("#msg");
 
 function showModal(type) {
   const modal = document.getElementById("authModal");
@@ -13,13 +14,19 @@ function showModal(type) {
   if (type === "login") {
     modalTitle.textContent = "Login";
     usernameField.style.display = "none";
-    confirmPasswordField.style.display = "none";
+    // confirmPasswordField.style.display = "none";
     authBtn.textContent = "Login";
+    msg.innerHTML = `<a href="javascript:void(0)" onclick="showModal('signup')"
+              >Signup</a
+            >`;
   } else {
     modalTitle.textContent = "Signup";
     usernameField.style.display = "block";
-    confirmPasswordField.style.display = "block";
+    // confirmPasswordField.style.display = "block";
     authBtn.textContent = "Signup";
+    msg.innerHTML = `<a href="javascript:void(0)" onclick="showModal('login')"
+              >Signup</a
+            >`;
   }
 
   modal.style.display = "flex";
