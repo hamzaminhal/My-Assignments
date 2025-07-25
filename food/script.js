@@ -1,63 +1,50 @@
 let api = "https://dummyjson.com/recipes";
-let products = [];
-let img = document.querySelector("#img");
-let nameElement = document.querySelector("#name");
-let ingredientsElement = document.querySelector("#ingredients");
-let cuisineElement = document.querySelector("#cuisine");
-let dificulty = document.querySelector("#dificulty");
-let cookingTime = document.querySelector("#time");
-let preparationTime = document.querySelector("#prepare-time");
-let nextBtn = document.querySelector("#next-recipe");
-let preBtn = document.querySelector("#previous-recipe");
-let instructionsElement = document.querySelector("#instructions");
-let recipeNmbr = 0;
+let currentRecipe = 0;
+let cardsElement = document.querySelector("#cards");
 
-function showRecipe() {
-  let mainLink = products.recipes[recipeNmbr];
-  nameElement.textContent = mainLink.name;
-  let imgAdd = mainLink.image;
-  ingredientsElement.textContent = "";
-  mainLink.ingredients.forEach((element) => {
-    ingredientsElement.innerHTML += `<li>${element}</li>`;
-  });
-  img.innerHTML = `<img src="${imgAdd}">`;
-  cuisineElement.textContent = mainLink.cuisine;
-  dificulty.textContent = mainLink.difficulty;
-  cookingTime.textContent = mainLink.cookTimeMinutes;
-  preparationTime.textContent = mainLink.prepTimeMinutes;
-  instructionsElement.textContent = "";
-  mainLink.instructions.forEach((instruct) => {
-    instructionsElement.innerHTML += `<li>${instruct}</li>`;
-  });
-}
-(function () {
-  fetch(api)
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      products = res;
-      showRecipe();
-    })
-    .catch(() => {
-      alert("Please Reload some error occured");
-    });
+(async function () {
+  let data = await fetch(api);
+  let products = await data.json();
+  showRecipes(products);
 })();
 
-nextBtn.addEventListener("click", () => {
-  recipeNmbr++;
-  if (recipeNmbr < products.recipes.length) {
-    showRecipe();
-  } else {
-    recipeNmbr = products.recipes.length - 1;
-    showRecipe();
-  }
-});
-preBtn.addEventListener("click", () => {
-  recipeNmbr--;
-  if (recipeNmbr >= 0) {
-    showRecipe();
-  } else {
-    recipeNmbr = 0;
-    showRecipe();
-  }
-});
+function showRecipes(products) {
+  let { recipes } = products;
+  console.log(recipes);
+  recipes.map((recipe) => {
+    let {
+      cookTimeMinutes,
+      id,
+      name,
+      cuisine,
+      difficulty,
+      image,
+      ingredients,
+      instructions,
+      prepTimeMinutes,
+      rating,
+    } = recipe;
+    cardsElement.innerHTML += `
+    <div class="recipe-card">
+      <img
+        src="${image}"
+        alt="Recipe Image"
+        class="recipe-image"
+      />
+      <div class="recipe-content">
+        <h2 class="recipe-title">${name}</h2>
+        <p class="recipe-meta">⏱️ ${prepTimeMinutes} mins &nbsp; • &nbsp; 🔥 ${difficulty}</p>
+        <p class="recipe-desc">
+          ${instructions}
+          feasts or BBQ nights.
+        </p>
+        <button onClick="openRecipe(${id})" class="recipe-btn">View Recipe</button>
+      </div>
+    </div>
+    `;
+  });
+}
+
+function openRecipe(recipeNmbr) {
+  console.log(recipeNmbr);
+}

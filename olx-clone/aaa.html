@@ -1,0 +1,141 @@
+<!-- ✅ Trigger Buttons (Place anywhere on your page) -->
+<button onclick="showModal('login')">Login</button>
+<button onclick="showModal('signup')">Signup</button>
+
+<!-- ✅ Modal Structure -->
+<div id="authModal" class="modal-overlay">
+  <div class="modal-box">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle">Login</h2>
+    <form id="authForm">
+      <input
+        type="text"
+        id="usernameField"
+        placeholder="Username"
+        style="display: none"
+      />
+      <input type="email" id="emailField" placeholder="Email" required />
+      <input
+        type="password"
+        id="passwordField"
+        placeholder="Password"
+        required
+      />
+      <input
+        type="password"
+        id="confirmPasswordField"
+        placeholder="Confirm Password"
+        style="display: none"
+      />
+      <button type="submit" id="authBtn">Login</button>
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Modal Styles -->
+<style>
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-box {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .modal-box h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .modal-box input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: #f9f9f9;
+  }
+
+  .modal-box button {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .modal-box button:hover {
+    background-color: #0056b3;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #888;
+  }
+
+  .close-btn:hover {
+    color: #000;
+  }
+</style>
+
+<!-- ✅ Modal Script -->
+<script>
+  function showModal(type) {
+    const modal = document.getElementById("authModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const usernameField = document.getElementById("usernameField");
+    const confirmPasswordField = document.getElementById(
+      "confirmPasswordField"
+    );
+    const authBtn = document.getElementById("authBtn");
+
+    if (type === "login") {
+      modalTitle.textContent = "Login";
+      usernameField.style.display = "none";
+      confirmPasswordField.style.display = "none";
+      authBtn.textContent = "Login";
+    } else {
+      modalTitle.textContent = "Signup";
+      usernameField.style.display = "block";
+      confirmPasswordField.style.display = "block";
+      authBtn.textContent = "Signup";
+    }
+
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("authModal").style.display = "none";
+  }
+
+  document.getElementById("authForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const type = document
+      .getElementById("modalTitle")
+      .textContent.toLowerCase();
+    alert(`${type.charAt(0).toUpperCase() + type.slice(1)} submitted!`);
+    closeModal();
+  });
+</script>
