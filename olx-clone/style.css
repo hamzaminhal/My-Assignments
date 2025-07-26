@@ -12,11 +12,12 @@ body {
 }
 header {
   /* background-color: bisque; */
-  height: 120px;
+  min-height: 120px;
   width: 100%;
   position: sticky;
   top: 0px;
   background-color: white;
+  padding: 10px;
   z-index: 10;
 }
 .first {
@@ -314,7 +315,7 @@ footer {
   .signup{
     display: none;
   }
-@media screen and (max-width: 700px) {
+/* @media screen and (max-width: 700px) {
   .buttons {
     display: none;
     .menu-items {
@@ -322,7 +323,7 @@ footer {
       overflow: hidden;
     }
   }
-}
+} */
 #profile{
   display: none;
 }
@@ -498,22 +499,29 @@ footer {
         width: 100%;
       }
     } */
-@media screen and (max-width: 400px) {
+    
+@media screen and (max-width: 786px) {
   body {
     margin: 0;
     padding: 0;
     flex-shrink: 0;
   }
   .first {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+
   }
   .second {
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     object-fit: cover;
+
+
   }
   .flash {
     margin-top: 10px;
@@ -527,18 +535,26 @@ footer {
 
   .menu {
     display: none;
+        margin: 20px 0px;
+
+
   }
-  .buttons {
+  .search{
     display: none;
+    /* margin: 20px 0px; */
+
   }
+  /* .buttons {
+    display: none;
+  } */
   .cat-div h2 {
     text-align: center;
   }
-  .pak {
+  /* .pak {
     display: flex;
     align-items: center;
     margin-left: 10px;
-  }
+  } */
   .location {
     display: none;
   }

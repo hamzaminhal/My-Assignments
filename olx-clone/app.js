@@ -79,9 +79,10 @@ form.addEventListener("submit", function (e) {
       loginBtn.style.display = "none";
       profile.style.display = "block";
       profile.innerHTML = `
-        <img src="images/mobile.png" id='profile-img' alt="profile image"/>
+        <img src="images/images.png" id='profile-img' alt="profile image"/>
         <span>${existingUser.userName}</span>
       `;
+      let loggedUser = JSON.parse(localStorage.getItem("logged"));
       loggedUsername.textContent = loggedUser.userName;
       loggedEmail.textContent = loggedUser.email;
       attachProfileToggle();
@@ -101,7 +102,7 @@ form.addEventListener("submit", function (e) {
     loginBtn.style.display = "none";
     profile.style.display = "block";
     profile.innerHTML = `
-      <img src="images/mobile.png" id='profile-img' alt="profile image"/>
+      <img src="images/images.png" id='profile-img' alt="profile image"/>
       <span>${loggedUser.userName}</span>
     `;
     loggedUsername.textContent = loggedUser.userName;
@@ -114,18 +115,16 @@ form.addEventListener("submit", function (e) {
 function attachProfileToggle() {
   let profileImg = document.getElementById("profile-img");
 
-  if (profileImg) {
-    profileImg.addEventListener("click", () => {
-      console.log(profileImg);
-      if (click) {
-        userDetails.classList.remove("hide");
-        click = false;
-      } else {
-        userDetails.classList.add("hide");
-        click = true;
-      }
-    });
-  }
+  profileImg.addEventListener("click", () => {
+    console.log(profileImg);
+    if (click) {
+      userDetails.classList.remove("hide");
+      click = false;
+    } else {
+      userDetails.classList.add("hide");
+      click = true;
+    }
+  });
 }
 
 // Logout function
