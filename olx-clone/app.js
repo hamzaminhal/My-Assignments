@@ -137,7 +137,7 @@ function logout() {
 
 let api = "https://dummyjson.com/products";
 const loader = document.getElementById("loader");
-let productContainer = document.querySelector("#product-container");
+let productContainer = document.querySelector("#products");
 (async function () {
   let res = await fetch(api);
   let data = await res.json();
@@ -158,9 +158,11 @@ function showCards(products) {
       rating,
       title,
       shippingInformation,
+      id,
     } = product;
     productContainer.innerHTML += `
-    <div class="product-card">
+     <div class="product-card">
+    <a href="./singleProduct/index.html?id=${id}" target="_blank">
       <img
         src="${images[0]}"
         alt="Product Image"
@@ -182,6 +184,7 @@ function showCards(products) {
           <span>(${rating}/5)</span>
         </div>
       </div>
+      </a>
     </div>
     `;
   });
