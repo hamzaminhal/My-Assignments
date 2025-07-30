@@ -41,7 +41,7 @@ signupBtn.addEventListener("click", (event) => {
       let newUser = new user(fullname, signupEmail, signupPassword);
       allUsers.push(newUser);
       save();
-      swal("Success", "Signed Up Succesfully!", "Success").then(() => {
+      swal("Success", "Signed Up Successful!", "success").then(() => {
         window.location.assign("../login/index.html");
       });
     }

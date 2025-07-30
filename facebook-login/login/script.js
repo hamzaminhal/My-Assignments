@@ -25,7 +25,11 @@ loginBtn.addEventListener("click", (event) => {
     });
     console.log(matchedUser);
     if (matchedUser) {
-      swal("Success", "Login Successful!", "success").then(() => {
+      swal(
+        "Success",
+        `Login Successful! Welcome Back ${matchedUser.username}`,
+        "success"
+      ).then(() => {
         window.location.href = `../home/index.html?username=${matchedUser.username}&email=${matchedUser.email}`;
       });
       localStorage.setItem("logged", JSON.stringify(matchedUser));
