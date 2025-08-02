@@ -1,9 +1,10 @@
 // class to make new user
 class user {
-  constructor(username, email, password) {
+  constructor(username, email, password, id) {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.id = id;
   }
 }
 
@@ -38,7 +39,8 @@ signupBtn.addEventListener("click", (event) => {
     if (checkUser) {
       swal("Warning", "Email already Exists! Please Login", "warning");
     } else {
-      let newUser = new user(fullname, signupEmail, signupPassword);
+      let id = allUsers.length + 1;
+      let newUser = new user(fullname, signupEmail, signupPassword, id);
       allUsers.push(newUser);
       save();
       swal("Success", "Signed Up Successful!", "success").then(() => {
