@@ -3,10 +3,10 @@ let loggedUsername = document.querySelector("#logged-username");
 let loggedEmail = document.querySelector("#logged-email");
 let userDetails = document.querySelector("#details");
 let show = true;
-
 let data = new URLSearchParams(window.location.search);
 let username = data.get("username");
 let email = data.get("email");
+
 // console.log(username);
 // console.log(email);
 
