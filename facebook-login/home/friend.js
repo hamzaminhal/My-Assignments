@@ -1,15 +1,42 @@
 let friendsRequestContainer = document.querySelector("#requests");
+let friendsListContainer = document.querySelector("#friends");
 let allUsers = JSON.parse(localStorage.getItem("users") || []);
 let loggedInUser = JSON.parse(localStorage.getItem("logged"));
 let friendList = [];
-const confirmBtn = document.querySelector("#confirm");
+let confirmBtn = document.querySelector("#confirm");
 
-(function () {
+function showRequests() {
+  friendsRequestContainer.innerHTML = "";
+  console.log(allUsers.length);
+  console.log(loggedInUser.friends.length);
+
   friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
-  console.log(friendList);
-  friendList.map((user) => {
-    friendsRequestContainer.innerHTML += `
-  <div class="request-card">
+  if (friendList.length === loggedInUser.friends.length) {
+    friendsRequestContainer.innerHTML = `
+    <h3>No Friend Request</h3>
+    `;
+  } else {
+    console.log(friendList);
+    friendList.map((user) => {
+      if (loggedInUser.friends.length < 1) {
+        showCards(user);
+      } else {
+        loggedInUser.friends.forEach((friendId) => {
+          console.log(friendList);
+
+          if (user.id !== friendId) {
+            showCards(user);
+          }
+        });
+      }
+    });
+  }
+}
+showRequests();
+
+function showCards(user) {
+  friendsRequestContainer.innerHTML += `
+      <div class="request-card" id="request${user.id}">
   
         <div id="fb">
           <div id="fb-top">
@@ -28,19 +55,76 @@ const confirmBtn = document.querySelector("#confirm");
             <span>14 mutual friends</span>
           </p>
           <div id="button-block">
-            <div id="confirm" onclick="addFriend(${user.id})">Confirm</div>
+            <div id="confirm" onclick="addFriend(${user.id}), showFriends()">Confirm</div>
             <div id="delete">Delete Request</div>
           </div>
         </div>
         
   </div>
   `;
-  });
-})();
+}
 
-function addFriend(friendId) {
-  loggedInUser.friends.push(friendId);
+function addFriend(id) {
+  loggedInUser.friends.push(id);
+  console.log(loggedInUser.friends);
   allUsers[loggedInUser.id - 1] = loggedInUser;
-  console.log(allUsers);
   localStorage.setItem("users", JSON.stringify(allUsers));
+  localStorage.setItem("logged", JSON.stringify(loggedInUser));
+  showFriends();
+  showRequests();
+}
+
+function showFriends() {
+  friendsListContainer.innerHTML = "";
+  if (loggedInUser.friends.length === 0) {
+    friendsListContainer.innerHTML = `
+        <h3>You Have no Friends</h3>
+        `;
+  }
+  loggedInUser.friends.map((friend) => {
+    allUsers.map((user) => {
+      if (friend === user.id) {
+        friendsListContainer.innerHTML += `
+        <div class="request-card" id="request${friend}">
+  
+        <div id="fb">
+          <div id="fb-top">
+            <p>
+              <b>Friend </b><span>Find Friends &bull; Settings</span>
+            </p>
+          </div>
+          <img
+            src="./images/images.png"
+            height="100"
+            width="100"
+            alt="Image"
+          />
+          <p id="info">
+            <b>${user.username}</b> <br />
+            <span>14 mutual friends</span>
+          </p>
+          <div id="button-block">
+            
+            <div id="delete" onclick="dltFriend(${user.id})">Delete Request</div>
+          </div>
+        </div>
+        
+  </div>
+        `;
+      }
+    });
+  });
+}
+showFriends();
+
+function dltFriend(id) {
+  let index = loggedInUser.friends.indexOf(id);
+  console.log(index);
+  loggedInUser.friends.splice(index, 1);
+  console.log(loggedInUser.friends);
+  allUsers[loggedInUser.id - 1] = loggedInUser;
+  localStorage.setItem("users", JSON.stringify(allUsers));
+  localStorage.setItem("logged", JSON.stringify(loggedInUser));
+  showRequests();
+  showFriends();
 }

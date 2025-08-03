@@ -437,6 +437,23 @@ main .post-card .s-line {
   margin-right: 10px;
   font-family: sans-serif;
 }
+#requests,
+#friends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+  /* min-height: 150px; */
+}
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.main h1 {
+  margin: 10px;
+}
 
 #delete {
   color: #222;
