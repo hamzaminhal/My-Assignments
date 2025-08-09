@@ -21,8 +21,8 @@ let likesDiv = document.querySelector("#like");
     });
   }
 })();
-
 displayUsername.innerHTML = loggedUserData.username;
+
 profileId.addEventListener("click", () => {
   // console.log(profileId);
   if (show) {
