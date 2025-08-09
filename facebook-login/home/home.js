@@ -56,18 +56,6 @@ class post {
     this.likes++;
   }
 }
-let friendsPosts = [];
-loggedUserData.friends.map((id) => {
-  console.log(id);
-  let otherposts = allUsers[id - 1].myPosts;
-  friendsPosts = [...friendsPosts, ...otherposts];
-});
-console.log(friendsPosts);
-let allPosts = [...friendsPosts, ...loggedUserData.myPosts];
-allPosts.sort(() => {
-  let num = Math.random() - 0.5;
-  return num;
-});
 
 function publishPost() {
   let content = document.querySelector("#post-text");
@@ -82,8 +70,21 @@ function publishPost() {
   renderPosts();
   content.value = "";
 }
-
+// debugger;
 function renderPosts() {
+  let friendsPosts = [];
+  loggedUserData.friends.map((id) => {
+    console.log(id);
+    let otherposts = allUsers[id - 1].myPosts;
+    friendsPosts = [...friendsPosts, ...otherposts];
+  });
+  console.log(friendsPosts);
+  let allPosts = [...friendsPosts, ...loggedUserData.myPosts];
+  allPosts.sort(() => {
+    let num = Math.random() - 0.5;
+    return num;
+  });
+  // debugger;
   let feedPostsContainer = document.querySelector("#feed-posts");
 
   // console.log(allPosts);
