@@ -9,7 +9,6 @@ let username = data.get("username");
 let email = data.get("email");
 let loggedUserData = JSON.parse(localStorage.getItem("logged"));
 let allUsers = JSON.parse(localStorage.getItem("users"));
-displayUsername.innerHTML = loggedUserData.username;
 let likesDiv = document.querySelector("#like");
 
 (function () {
@@ -23,6 +22,7 @@ let likesDiv = document.querySelector("#like");
   }
 })();
 
+displayUsername.innerHTML = loggedUserData.username;
 profileId.addEventListener("click", () => {
   // console.log(profileId);
   if (show) {
