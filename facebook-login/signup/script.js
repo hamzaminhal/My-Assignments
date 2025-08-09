@@ -6,6 +6,8 @@ class user {
     this.password = password;
     this.id = id;
     this.friends = [];
+    this.myPosts = [];
+    this.creatTime = new Date().toISOString();
   }
 }
 
