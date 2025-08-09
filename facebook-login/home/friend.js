@@ -1,12 +1,12 @@
-import { data, logout } from "./home.js";
+// import { data, logout } from "./home.js";
 let profileId = document.querySelector("#profile-id");
 let loggedUsername = document.querySelector("#logged-username");
 let displayUsername = document.querySelector("#username");
 let loggedEmail = document.querySelector("#logged-email");
 let userDetails = document.querySelector("#details");
 let show = true;
-let username = data.get("username");
-let email = data.get("email");
+// let username = data.get("username");
+// let email = data.get("email");
 let loggedUserData = JSON.parse(localStorage.getItem("logged"));
 let allUsers = JSON.parse(localStorage.getItem("users"));
 let friendsRequestContainer = document.querySelector("#requests");
@@ -17,8 +17,8 @@ let confirmBtn = document.querySelector("#confirm");
 
 (function () {
   if (loggedInUser) {
-    loggedUsername.textContent = loggedUserData.username;
-    loggedEmail.textContent = loggedUserData.email;
+    loggedInUser.textContent = loggedUserData.username;
+    loggedInUser.textContent = loggedUserData.email;
   } else {
     swal("UnAuthorized Access", "Please Login First!", "warning").then(() => {
       window.location.assign("../login/index.html");

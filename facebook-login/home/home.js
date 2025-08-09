@@ -198,4 +198,4 @@ function renderPosts() {
 }
 renderPosts();
 
-export { data, logout };
+// export { data, logout };
