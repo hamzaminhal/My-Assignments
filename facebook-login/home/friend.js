@@ -7,8 +7,17 @@ let confirmBtn = document.querySelector("#confirm");
 let displayUsername = document.querySelector("#username");
 friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
 
+(function () {
+  if (loggedInUser) {
+    loggedUsername.textContent = loggedUserData.username;
+    loggedEmail.textContent = loggedUserData.email;
+  } else {
+    swal("UnAuthorized Access", "Please Login First!", "warning").then(() => {
+      window.location.assign("../login/index.html");
+    });
+  }
+})();
 displayUsername.innerHTML = loggedInUser.username;
-
 function showRequests() {
   friendsRequestContainer.innerHTML = "";
 
