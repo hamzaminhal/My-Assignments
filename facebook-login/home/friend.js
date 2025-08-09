@@ -1,10 +1,19 @@
+import { data, logout } from "./home.js";
+let profileId = document.querySelector("#profile-id");
+let loggedUsername = document.querySelector("#logged-username");
+let displayUsername = document.querySelector("#username");
+let loggedEmail = document.querySelector("#logged-email");
+let userDetails = document.querySelector("#details");
+let show = true;
+let username = data.get("username");
+let email = data.get("email");
+let loggedUserData = JSON.parse(localStorage.getItem("logged"));
+let allUsers = JSON.parse(localStorage.getItem("users"));
 let friendsRequestContainer = document.querySelector("#requests");
 let friendsListContainer = document.querySelector("#friends");
-let allUsers = JSON.parse(localStorage.getItem("users")) || [];
 let loggedInUser = JSON.parse(localStorage.getItem("logged"));
 let friendList = [];
 let confirmBtn = document.querySelector("#confirm");
-let displayUsername = document.querySelector("#username");
 
 (function () {
   if (loggedInUser) {
@@ -16,6 +25,19 @@ let displayUsername = document.querySelector("#username");
     });
   }
 })();
+profileId.addEventListener("click", () => {
+  // console.log(profileId);
+  if (show) {
+    console.log(show);
+    userDetails.classList.remove("hide");
+    show = false;
+  } else {
+    console.log(show);
+    userDetails.classList.add("hide");
+    show = true;
+  }
+});
+
 friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
 
 displayUsername.innerHTML = loggedInUser.username;
