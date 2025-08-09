@@ -5,7 +5,6 @@ let loggedInUser = JSON.parse(localStorage.getItem("logged"));
 let friendList = [];
 let confirmBtn = document.querySelector("#confirm");
 let displayUsername = document.querySelector("#username");
-friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
 
 (function () {
   if (loggedInUser) {
@@ -17,6 +16,8 @@ friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
     });
   }
 })();
+friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
+
 displayUsername.innerHTML = loggedInUser.username;
 function showRequests() {
   friendsRequestContainer.innerHTML = "";
