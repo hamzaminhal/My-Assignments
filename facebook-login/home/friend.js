@@ -1,6 +1,6 @@
 let friendsRequestContainer = document.querySelector("#requests");
 let friendsListContainer = document.querySelector("#friends");
-let allUsers = JSON.parse(localStorage.getItem("users") || []);
+let allUsers = JSON.parse(localStorage.getItem("users")) || [];
 let loggedInUser = JSON.parse(localStorage.getItem("logged"));
 let friendList = [];
 let confirmBtn = document.querySelector("#confirm");
