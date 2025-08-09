@@ -4,30 +4,34 @@ let allUsers = JSON.parse(localStorage.getItem("users") || []);
 let loggedInUser = JSON.parse(localStorage.getItem("logged"));
 let friendList = [];
 let confirmBtn = document.querySelector("#confirm");
+let displayUsername = document.querySelector("#username");
+friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
+
+displayUsername.innerHTML = loggedInUser.username;
 
 function showRequests() {
   friendsRequestContainer.innerHTML = "";
-  console.log(allUsers.length);
-  console.log(loggedInUser.friends.length);
 
-  friendList = allUsers.filter((user) => user.id !== loggedInUser.id);
   if (friendList.length === loggedInUser.friends.length) {
     friendsRequestContainer.innerHTML = `
     <h3>No Friend Request</h3>
     `;
   } else {
-    console.log(friendList);
+    // debugger;
+    // console.log(friendList);
     friendList.map((user) => {
       if (loggedInUser.friends.length < 1) {
         showCards(user);
       } else {
-        loggedInUser.friends.forEach((friendId) => {
-          console.log(friendList);
-
-          if (user.id !== friendId) {
-            showCards(user);
-          }
-        });
+        // loggedInUser.friends.map((friendId) => {
+        console.log(loggedInUser.friends.includes(user.id));
+        if (!loggedInUser.friends.includes(user.id)) {
+          showCards(user);
+        }
+        // if (user.id !== friendId) {
+        //   showCards(user);
+        // }
+        // });
       }
     });
   }
@@ -65,6 +69,7 @@ function showCards(user) {
 }
 
 function addFriend(id) {
+  // debugger;
   loggedInUser.friends.push(id);
   console.log(loggedInUser.friends);
   allUsers[loggedInUser.id - 1] = loggedInUser;
